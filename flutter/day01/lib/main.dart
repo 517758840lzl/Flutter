@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 void main() {
   runApp(
@@ -9,12 +10,13 @@ void main() {
             title: const Text("Flutter"),
           ),
           body: Center(
-            child:Row(
+            child:Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                LZLHelloFlutter(false),
-                // const SizedBox(width: 24,),
-                const Text("hello Flutter",style: TextStyle(fontSize: 18),),
+
+                CachedNetworkImage(
+                  imageUrl: 'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif',
+                ),
               ],
             ),
           ),
@@ -22,27 +24,10 @@ void main() {
       )
   );
 }
+// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5fVkpske47rrjEYdPvZWx2AU1GHyzdUnXyJSTi8hjLw&s
+// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUnkioP0T3qVSP_wmDkqmlaZFLSrEcGRvpfI1KDqjynQ&s
+// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVwPPZ790FTGhf26MiPKKO5leEr_9ZlkU92b8JbUvR5Q&s
+// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGQIH7MGeZ2Xq0XstdOC4DddbBRNDeADmCTJpAGNQQ6Q&s
 
-class LZLHelloFlutter extends StatefulWidget {
 
-  var stateCheckbox = false;
-  LZLHelloFlutter(this.stateCheckbox,{super.key});
-
-  @override
-  State<LZLHelloFlutter> createState() => _LZLHelloFlutterState();
-}
-
-class _LZLHelloFlutterState extends State<LZLHelloFlutter> {
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
-        value: widget.stateCheckbox,
-        onChanged: (value) {
-          setState(() {
-            widget.stateCheckbox = value ?? false;
-          });
-        }
-    );
-  }
-}
 
