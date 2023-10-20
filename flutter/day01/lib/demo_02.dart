@@ -67,7 +67,7 @@ class LZLItemIntroduce extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
           border: Border.all(
               width: 5, // 设置边框的宽度
