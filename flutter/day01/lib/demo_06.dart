@@ -31,29 +31,14 @@ class LZLHomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: AlignmentDirectional.bottomEnd,
-      children: [
-        Container(
-            height: 300,
-            width: 250,
-            color: Colors.red,
-            child: Image(image: AssetImage('assets/images/belt.jpg'),fit: BoxFit.fitWidth,)
-        ),
-        Positioned(
-          bottom: 20,
-          right: 20,
-          child: Container(
-            height: 100,
-            width: 200,
-            color: Colors.grey,
-            alignment: Alignment.center,
-            child: Text('hello flutter',style: TextStyle(fontSize: 24,color: Colors.red,fontWeight: FontWeight.bold),),
-          ),
-        )
-      ],
-    );
+    // return const FadeInImage(placeholder: AssetImage("assets/images/belt.jpg"),
+    //     image: NetworkImage("https://pic.616pic.com/bg_w1180/00/00/65/pH7zV5jZ4W.jpg!/fw/1120"));
+
+    // return Icon(Icons.pets, size: 300,color: Colors.orange,);
+    // return Icon(IconData(0xe4a1, fontFamily: 'MaterialIcons'), color: Colors.orange,size: 300,);
+    return Text("\ue4a1",style: TextStyle(fontFamily: 'MaterialIcons',fontSize: 100,color: Colors.orange),);
   }
+
 }
 
 
