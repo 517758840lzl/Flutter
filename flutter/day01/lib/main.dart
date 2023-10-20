@@ -9,25 +9,44 @@ void main() {
           appBar: AppBar(
             title: const Text("Flutter"),
           ),
-          body: Center(
-            child:Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-
-                CachedNetworkImage(
-                  imageUrl: 'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif',
-                ),
-              ],
+          body: SingleChildScrollView(
+            child: Center(
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CachedNetworkImage(
+                    imageUrl: 'https://pic.616pic.com/bg_w1180/00/00/65/pH7zV5jZ4W.jpg!/fw/1120',
+                  ),
+                  const SizedBox(height: 10,),
+                  CachedNetworkImage(
+                    imageUrl: 'https://pic.com/ad',
+                    placeholder: (context, url) => Image.asset(
+                      'assets/images/belt.jpg',
+                    ),
+                    errorWidget: (content,url,error) => Image.asset(
+                      'assets/images/belt.jpg',
+                    ),
+                    imageBuilder: (context, imageProvider) => Container(
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                            colorFilter:
+                            const ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
       )
   );
 }
-// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5fVkpske47rrjEYdPvZWx2AU1GHyzdUnXyJSTi8hjLw&s
-// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUnkioP0T3qVSP_wmDkqmlaZFLSrEcGRvpfI1KDqjynQ&s
-// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVwPPZ790FTGhf26MiPKKO5leEr_9ZlkU92b8JbUvR5Q&s
-// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGQIH7MGeZ2Xq0XstdOC4DddbBRNDeADmCTJpAGNQQ6Q&s
+
+
 
 
 
