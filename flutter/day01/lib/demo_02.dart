@@ -66,6 +66,24 @@ class LZLItemIntroduce extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return hello(title: title, subTitle: subTitle, imageUrl: imageUrl);
+  }
+}
+
+class hello extends StatelessWidget {
+  const hello({
+    super.key,
+    required this.title,
+    required this.subTitle,
+    required this.imageUrl,
+  });
+
+  final String title;
+  final String subTitle;
+  final String imageUrl;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(

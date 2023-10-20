@@ -26,9 +26,14 @@ class LZLHomePage extends StatelessWidget {
   }
 }
 
-class LZLHomeContent extends StatelessWidget {
+class LZLHomeContent extends StatefulWidget {
   const LZLHomeContent({super.key});
 
+  @override
+  State<LZLHomeContent> createState() => _LZLHomeContentState();
+}
+
+class _LZLHomeContentState extends State<LZLHomeContent> {
   @override
   Widget build(BuildContext context) {
     return const Center(
