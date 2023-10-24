@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:day01/network/NetWorkTool.dart';
+import 'package:flutter/material.dart';
 
 main() => runApp(const LZLApp());
 
@@ -35,13 +35,16 @@ class LZLHomeContent extends StatefulWidget {
 }
 
 class _LZLHomeContentState extends State<LZLHomeContent> {
-  String name = "";
   @override
+  var name = "";
   void initState() {
-    RequestManage.request("/api/common/OneFilm").then((value) {
-      print("value = $value");
+    // TODO: implement initState
+    super.initState();
+
+    RequestManage.request("/get",params: {'name':"我是参数名称",'age':'18'}).then((value) {
+      print("value1 = ${value['args']}");
       setState(() {
-        name = value['result']['mov_intro'];
+        name = value['args']['age'];
       });
       print("name = $name");
     }).onError((error, stackTrace) {
@@ -49,10 +52,7 @@ class _LZLHomeContentState extends State<LZLHomeContent> {
     }).whenComplete(() {
       print("接收完成");
     });
-
-    super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Center(
