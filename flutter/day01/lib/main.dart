@@ -1,3 +1,4 @@
+import 'package:day01/douban/start_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:day01/network/NetWorkTool.dart';
 
@@ -22,7 +23,7 @@ class LZLHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Flutter"),),
-      body: const LZLHomeContent(),
+      body: LZLHomeContent(),
     );
   }
 }
@@ -38,10 +39,10 @@ class _LZLHomeContentState extends State<LZLHomeContent> {
   String name = "";
   @override
   void initState() {
-    RequestManage.request("/api/common/OneFilm").then((value) {
+    RequestManage.request("douban.json").then((value) {
       print("value = $value");
       setState(() {
-        name = value['result']['mov_intro'];
+        name = value['total'].toString();
       });
       print("name = $name");
     }).onError((error, stackTrace) {
@@ -56,7 +57,7 @@ class _LZLHomeContentState extends State<LZLHomeContent> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("hello flutter $name",style: TextStyle(fontSize: 24),),
+      child: LZLStartRating(3),
     );
   }
 }

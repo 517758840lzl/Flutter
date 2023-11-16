@@ -56,5 +56,6 @@ class LZLBaseOptions{
   static const connectTimeout =  Duration(milliseconds: 10000);
   static const receiveTimeout =  Duration(milliseconds: 10000);
   static const sendTimeout    =  Duration(milliseconds: 10000);
-  static const baseUrl = "https://api.oioweb.cn";
+  // static const baseUrl = "https://api.oioweb.cn";
+  static const baseUrl = "http://localhost/";
 }
