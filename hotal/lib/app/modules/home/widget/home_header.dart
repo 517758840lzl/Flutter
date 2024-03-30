@@ -77,22 +77,26 @@ class HomeHeader extends StatelessWidget {
                 )),
                 InkWell(
                   onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        8,
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8,
+                          horizontal: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            8,
+                          ),
+                          color: appColor(context).useScheme.secondaryContainer,
+                        ),
+                        child: Icon(
+                          Icons.send_outlined,
+                          size: 15,
+                          color: appColor(context).useScheme.primary,
+                        ),
                       ),
-                      color: appColor(context).useScheme.secondaryContainer,
-                    ),
-                    child: Icon(
-                      Icons.send_outlined,
-                      size: 15,
-                      color: appColor(context).useScheme.primary,
-                    ),
+                    ],
                   ),
                 ),
                 const SizedBox(
@@ -100,22 +104,26 @@ class HomeHeader extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        8,
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8,
+                          horizontal: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            8,
+                          ),
+                          // color: appColor(context).useScheme.secondaryContainer,
+                        ),
+                        child: Icon(
+                          Icons.add_circle_outline,
+                          size: 35,
+                          color: appColor(context).useScheme.primary,
+                        ),
                       ),
-                      // color: appColor(context).useScheme.secondaryContainer,
-                    ),
-                    child: Icon(
-                      Icons.add_circle_outline,
-                      size: 35,
-                      color: appColor(context).useScheme.primary,
-                    ),
+                    ],
                   ),
                 ),
                 const SizedBox(

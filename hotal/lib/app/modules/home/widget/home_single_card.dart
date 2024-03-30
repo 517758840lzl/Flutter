@@ -10,7 +10,7 @@ class HomePageSingleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
+        scrollDirection: Axis.horizontal,
 
         // child: FadeInImage(
         //   image: NetworkImage(roomRandomUtil()),
@@ -20,13 +20,32 @@ class HomePageSingleCard extends StatelessWidget {
         //     fit: BoxFit.cover,
         // ),
 
-        child: CachedNetworkImage(
-          imageUrl: roomRandomUtil(),
-          placeholder: (context, url) => const CircularProgressIndicator(),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
-        ),
+        child: Row(children: [
+
+          for(var i=0;i<5;i++)
+            createCard()
+        ],),
       ),
     );
   }
+}
+
+ Widget createCard() {
+  return Row(
+    children: [
+      const SizedBox(width: 20,),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+
+        child: CachedNetworkImage(
+          height: 200,
+          imageUrl: roomRandomUtil(),
+          placeholder: (context, url) => const CircularProgressIndicator(),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+          fit: BoxFit.fill,
+        ),
+      )
+    ],
+  );
 }
 

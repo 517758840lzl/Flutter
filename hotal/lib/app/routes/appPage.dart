@@ -3,6 +3,8 @@ import 'package:hotal/app/modules/bookmark/binding.dart';
 import 'package:hotal/app/modules/bookmark/view.dart';
 import 'package:hotal/app/modules/discount/binding.dart';
 import 'package:hotal/app/modules/discount/view.dart';
+import 'package:hotal/app/modules/discount_detail/binding.dart';
+import 'package:hotal/app/modules/discount_detail/view.dart';
 import 'package:hotal/app/modules/person/binding.dart';
 import 'package:hotal/app/modules/person/view.dart';
 import 'package:hotal/app/modules/profile/binding.dart';
@@ -48,6 +50,11 @@ class AppPage {
         name: _Paths.Menu,
         page: () => Wrapper_menuPage(),
         binding:  Wrapper_menuBinding()
+    ),
+    GetPage(
+        name: _Paths.DiscountDetail,
+        page: () => Discount_detailPage(),
+        binding:  Discount_detailBinding()
     ),
   ];
 }

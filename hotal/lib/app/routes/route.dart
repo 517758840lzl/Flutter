@@ -9,6 +9,7 @@ abstract class Routes {
   static const Menu = _Paths.Menu;
   static const Bookmark = _Paths.Bookmark;
   static const Person = _Paths.Pesanan;
+  static const DiscountDetail = _Paths.DiscountDetail;
 }
 
 
@@ -16,7 +17,8 @@ abstract class _Paths {
   _Paths._();
 
   static const HOME = '/home';
-  static const Pesanan = '/pesanan';
+  static const DiscountDetail = '/discount/detail';
+  static const Pesanan = '/person';
   static const Discount = '/discount';
   static const Bookmark = '/bookmark';
   static const Profile = '/profile';

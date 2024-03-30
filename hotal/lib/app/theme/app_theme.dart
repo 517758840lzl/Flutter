@@ -1,29 +1,28 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 TextTheme appFont(BuildContext context) {
-  return Theme.of(context).textTheme;
+  var data = Theme.of(context).textTheme;
+  return data;
 }
 
 ColorApp appColor(BuildContext context) {
   var scheme = Theme.of(context).colorScheme;
   var theme = Theme.of(context);
-
-  return ColorApp(useScheme: scheme,useThemeData: theme);
+  return ColorApp(
+    useScheme: scheme,
+    useThemeData: theme,
+  );
 }
 
 class ColorApp {
+  ColorApp({
+    required this.useScheme,
+    required this.useThemeData,
+  });
 
   ColorScheme useScheme;
   ThemeData useThemeData;
-
-  // ColorApp(this.useScheme,this.useThemeData);
-  // 这种带required的需要使用{} ，来修饰
-  // ColorApp({required this.useScheme,required this.useThemeData});
-
-  // ColorApp({this.useScheme,required this.useThemeData});
-
-  ColorApp({required this.useScheme,required this.useThemeData});
 }
 
 ThemeData appTheme(BuildContext context, {bool? useDark}) {
