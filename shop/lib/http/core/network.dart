@@ -1,3 +1,6 @@
+import 'package:shop/http/core/mock_adapter.dart';
+import 'package:shop/http/core/network_error.dart';
+import 'package:shop/http/core/network_response.dart';
 import 'package:shop/http/request/base_request.dart';
 
 class NetworkManage {
@@ -13,16 +16,35 @@ class NetworkManage {
   }
 
   Future fire(BaseRequest request) async{
-    var result = await send(request);
-    print("data = ${result["data"]}");
-    return result;
+    NetworkResponse? response;
+    var error;
+    try {
+      response = await send(request);
+    } on NetworkError catch(e) {
+      error = e;
+      response = e.data;
+    } catch(e) {
+      error = e;
+    }
+    if(response==null) {
+      return;
+    }
+
+    var statusCode = response!.statusCode;
+    switch(statusCode) {
+      case 200:
+        return response.data;
+      case 401:
+        throw NeedLogin();
+      case 403:
+        throw NeedAuth(response.data.toString(),data: response.data);
+      default:
+        throw NetworkError(statusCode!, response.data.toString(),data: response.data);
+    }
   }
 
   Future<dynamic>send<T>(BaseRequest request) async {
-    request.addHeader("token", "123456");
-    print("header = ${request.header}");
-    print("params = ${request.params}");
-    print("url = ${request.url()}");
-    return Future.value({"statusCode":200,"data":{"code":200,"message":"success"}});
+    MockAdapter adapter = MockAdapter();
+    return await adapter.send(request);
   }
 }
