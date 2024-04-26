@@ -1,13 +1,21 @@
+import 'dart:html';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../theme/app_theme.dart';
 import '../../../util/random/room_image_util.dart';
 
-class DiscountBooking extends StatelessWidget {
+class DiscountBooking extends StatefulWidget {
   const DiscountBooking({super.key});
 
+  @override
+  State<DiscountBooking> createState() => _DiscountBookingState();
+}
+
+class _DiscountBookingState extends State<DiscountBooking> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -66,7 +74,13 @@ class DiscountBooking extends StatelessWidget {
                       appFont(context).bodySmall,
                     ),
                   ),
-                  onPressed: () {},
+                  // 与原生进行交互
+                  onPressed: () {
+                    MethodChannel _methodChannel = MethodChannel('mine_page/method');
+                    File? _avatarFile;
+
+
+                  },
                   icon: const Icon(
                     Icons.verified_outlined,
                     size: 20,
