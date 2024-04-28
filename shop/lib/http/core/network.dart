@@ -1,4 +1,4 @@
-import 'package:shop/http/core/mock_adapter.dart';
+import 'package:shop/http/core/dio_adapter.dart';
 import 'package:shop/http/core/network_error.dart';
 import 'package:shop/http/core/network_response.dart';
 import 'package:shop/http/request/base_request.dart';
@@ -44,7 +44,8 @@ class NetworkManage {
   }
 
   Future<dynamic>send<T>(BaseRequest request) async {
-    MockAdapter adapter = MockAdapter();
+    // MockAdapter adapter = MockAdapter();
+    DioAdapter adapter = DioAdapter();
     return await adapter.send(request);
   }
 }
