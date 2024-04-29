@@ -1,9 +1,15 @@
 import 'package:get/get.dart';
 import 'package:shop/pages/main/binding.dart';
 import 'package:shop/pages/main/dynamic_circle/binding.dart';
+import 'package:shop/pages/main/dynamic_circle/view.dart';
 import 'package:shop/pages/main/home/binding.dart';
+import 'package:shop/pages/main/home/login/binding.dart';
+import 'package:shop/pages/main/home/login/view.dart';
+import 'package:shop/pages/main/home/view.dart';
 import 'package:shop/pages/main/mall/binding.dart';
+import 'package:shop/pages/main/mall/view.dart';
 import 'package:shop/pages/main/mine/binding.dart';
+import 'package:shop/pages/main/mine/view.dart';
 import 'package:shop/pages/main/publish/binding.dart';
 import 'package:shop/pages/main/publish/view.dart';
 import 'package:shop/pages/main/view.dart';
@@ -33,9 +39,29 @@ class BiliBiliRouter {
         ]
     ),
     GetPage(
-        name: "publish",
-        page:() => PublishPage(),
-        binding: PublishBinding()
+        name: "home",
+        page:() => HomePage(),
+        binding: HomeBinding()
+    ),
+    GetPage(
+        name: "mall",
+        page:() => MallPage(),
+        binding: MallBinding()
+    ),
+    GetPage(
+        name: "dynamic",
+        page:() => Dynamic_circlePage(),
+        binding: Dynamic_circleBinding()
+    ),
+    GetPage(
+        name: "mine",
+        page:() => MinePage(),
+        binding: MineBinding()
+    ),
+    GetPage(
+        name: "login",
+        page:() => LoginPage(),
+        binding: LoginBinding()
     ),
   ];
 }

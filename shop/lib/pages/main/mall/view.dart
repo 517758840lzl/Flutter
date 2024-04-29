@@ -11,6 +11,8 @@ class MallPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text("Mall",style: TextStyle(fontSize: 30,color: Colors.black),),
+    );
   }
 }

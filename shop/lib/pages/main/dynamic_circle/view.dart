@@ -11,6 +11,8 @@ class Dynamic_circlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text("Dynamic",style: TextStyle(fontSize: 30,color: Colors.black),),
+    );
   }
 }
