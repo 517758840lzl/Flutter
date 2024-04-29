@@ -26,9 +26,6 @@ class NetworkManage {
     } catch(e) {
       error = e;
     }
-    if(response==null) {
-      return;
-    }
 
     var statusCode = response!.statusCode;
     switch(statusCode) {
