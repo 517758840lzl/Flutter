@@ -3,6 +3,8 @@ import "package:flutter_screenutil/flutter_screenutil.dart";
 import 'package:get/get.dart';
 import 'package:shop/core/router/router.dart';
 
+import 'core/router/page_name.dart';
+
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 main() => runApp(LZLApp());
 
@@ -15,7 +17,7 @@ class LZLApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context,child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: router.initialRoute,
+        initialRoute: RouteName.MAIN,
         getPages: router.getPages,
         unknownRoute: router.unKnownPage,
         /// 全局去除水波纹

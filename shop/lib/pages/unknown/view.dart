@@ -11,6 +11,10 @@ class UnknownPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      body: Center(
+        child: Text("错误页面",style: TextStyle(fontSize: 30,color: Colors.black),),
+      ),
+    );
   }
 }

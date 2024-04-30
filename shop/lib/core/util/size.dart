@@ -4,6 +4,11 @@ mixin SizeConstantUtil {
 
   double get unSelectFontSizeCons => 14;
 
+  /// 顶部导航栏 字体大小
+  double get selectTabBarFontSizeCons => 16;
+
+  double get unSelectTabBarFontSizeCons => 14;
+
   /// 底部导航栏 字体大小
   double get selectTabFontSizeCons => 14;
 

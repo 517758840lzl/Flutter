@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:shop/core/router/page_name.dart';
 import 'package:shop/pages/main/binding.dart';
 import 'package:shop/pages/main/dynamic_circle/binding.dart';
 import 'package:shop/pages/main/dynamic_circle/view.dart';
@@ -6,6 +7,8 @@ import 'package:shop/pages/main/home/binding.dart';
 import 'package:shop/pages/main/home/login/binding.dart';
 import 'package:shop/pages/main/home/login/view.dart';
 import 'package:shop/pages/main/home/view.dart';
+import 'package:shop/pages/main/live/binding.dart';
+import 'package:shop/pages/main/live/view.dart';
 import 'package:shop/pages/main/mall/binding.dart';
 import 'package:shop/pages/main/mall/view.dart';
 import 'package:shop/pages/main/mine/binding.dart';
@@ -18,18 +21,17 @@ import 'package:shop/pages/main/view.dart';
 import 'package:shop/pages/unknown/binding.dart';
 import 'package:shop/pages/unknown/view.dart';
 
-class BiliBiliRouter {
-  final String initialRoute = "/main";
+class BiliBiliRouter with RouteName{
 
   final GetPage unKnownPage = GetPage(
-      name: "/unknown",
+      name: RouteName.UNKNOWN,
       page:() => UnknownPage(),
       binding: UnknownBinding()
   );
 
   final List<GetPage> getPages = [
     GetPage(
-        name: "/main",
+        name: RouteName.MAIN,
         page:() => MainPage(),
         // 可以绑定一组
         bindings: [
@@ -41,12 +43,12 @@ class BiliBiliRouter {
         ],
         children: [
           GetPage(
-              name: "/publish",
+              name: RouteName.PUBLISH,
               page:() => PublishPage(),
               binding: PublishBinding()
           ),
           GetPage(
-              name: "/search",
+              name: RouteName.SEARCH,
               page:() => SearchPage(),
               binding: SearchBinding()
           ),
@@ -54,29 +56,34 @@ class BiliBiliRouter {
       transition: Transition.fadeIn,
     ),
     GetPage(
-        name: "/home",
+        name: RouteName.HOME,
         page:() => HomePage(),
         binding: HomeBinding()
     ),
     GetPage(
-        name: "/mall",
+        name: RouteName.MALL,
         page:() => MallPage(),
         binding: MallBinding()
     ),
     GetPage(
-        name: "/dynamic",
+        name: RouteName.DYNAMIC,
         page:() => Dynamic_circlePage(),
         binding: Dynamic_circleBinding()
     ),
     GetPage(
-        name: "/mine",
+        name: RouteName.MINE,
         page:() => MinePage(),
         binding: MineBinding()
     ),
     GetPage(
-        name: "/login",
+        name: RouteName.LOGIN,
         page:() => LoginPage(),
         binding: LoginBinding()
+    ),
+    GetPage(
+        name: RouteName.LIVE,
+        page:() => LivePage(),
+        binding: LiveBinding()
     ),
   ];
 }
