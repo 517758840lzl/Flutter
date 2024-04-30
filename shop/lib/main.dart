@@ -18,6 +18,11 @@ class LZLApp extends StatelessWidget {
         initialRoute: router.initialRoute,
         getPages: router.getPages,
         unknownRoute: router.unKnownPage,
+        /// 全局去除水波纹
+        theme: ThemeData(
+          highlightColor: Colors.transparent,
+          splashFactory: NoSplash.splashFactory,
+        ),
       ),
     );
   }

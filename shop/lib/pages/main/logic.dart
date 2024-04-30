@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/system/system_orientions.dart';
@@ -12,13 +13,11 @@ class MainLogic extends GetxController {
     super.onInit();
   }
 
-  void updateIndex (int i) {
-    state.currentIndex = i;
-    update();
+  final currentPage = 0.obs;
+  final controller = PageController().obs;
+
+  void showPageWithIndex(int index) {
+    state.currentIndex.value = index;
   }
 
-  // 点击事件
-  void tarBarClick(int i) {
-    updateIndex(i);
-  }
 }

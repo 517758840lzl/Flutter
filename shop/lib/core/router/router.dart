@@ -12,6 +12,8 @@ import 'package:shop/pages/main/mine/binding.dart';
 import 'package:shop/pages/main/mine/view.dart';
 import 'package:shop/pages/main/publish/binding.dart';
 import 'package:shop/pages/main/publish/view.dart';
+import 'package:shop/pages/main/search/binding.dart';
+import 'package:shop/pages/main/search/view.dart';
 import 'package:shop/pages/main/view.dart';
 import 'package:shop/pages/unknown/binding.dart';
 import 'package:shop/pages/unknown/view.dart';
@@ -20,14 +22,14 @@ class BiliBiliRouter {
   final String initialRoute = "/main";
 
   final GetPage unKnownPage = GetPage(
-      name: "unknown",
+      name: "/unknown",
       page:() => UnknownPage(),
       binding: UnknownBinding()
   );
 
   final List<GetPage> getPages = [
     GetPage(
-        name: "main",
+        name: "/main",
         page:() => MainPage(),
         // 可以绑定一组
         bindings: [
@@ -35,31 +37,44 @@ class BiliBiliRouter {
           HomeBinding(),
           MallBinding(),
           Dynamic_circleBinding(),
-          MineBinding()
-        ]
+          MineBinding(),
+        ],
+        children: [
+          GetPage(
+              name: "/publish",
+              page:() => PublishPage(),
+              binding: PublishBinding()
+          ),
+          GetPage(
+              name: "/search",
+              page:() => SearchPage(),
+              binding: SearchBinding()
+          ),
+        ],
+      transition: Transition.fadeIn,
     ),
     GetPage(
-        name: "home",
+        name: "/home",
         page:() => HomePage(),
         binding: HomeBinding()
     ),
     GetPage(
-        name: "mall",
+        name: "/mall",
         page:() => MallPage(),
         binding: MallBinding()
     ),
     GetPage(
-        name: "dynamic",
+        name: "/dynamic",
         page:() => Dynamic_circlePage(),
         binding: Dynamic_circleBinding()
     ),
     GetPage(
-        name: "mine",
+        name: "/mine",
         page:() => MinePage(),
         binding: MineBinding()
     ),
     GetPage(
-        name: "login",
+        name: "/login",
         page:() => LoginPage(),
         binding: LoginBinding()
     ),
