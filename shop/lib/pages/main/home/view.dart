@@ -1,12 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:shop/core/util/image_assets.dart';
 import 'package:shop/pages/main/live/view.dart';
 
+import '../../../core/router/page_name.dart';
 import '../../../core/util/size.dart';
 import '../../../core/util/theme_color.dart';
 import '../../../widget/circle_button.dart';
+import '../../middle_ware/login_middle_ware.dart';
 import 'logic.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,6 +60,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled)
         {
           return [
+            //
             SliverToBoxAdapter(child: buildHomeTopAppBar()),
             SliverAppBar(
               title: buildHomeTabBar(),
@@ -88,7 +93,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     return CircleInkWellButton(
       bgColor: norWhite06Color,
       onTap: () {
-        logic.userLogin();
+        LoginWidget().goToLogin();
       },
       width: 40.r,
       height: 40.r,
@@ -152,7 +157,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     );
   }
 
-  /// 右侧按钮
+  ///
   Widget buildHomeTopAppBar() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.r, vertical: 5.r),

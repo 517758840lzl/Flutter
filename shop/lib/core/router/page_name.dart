@@ -11,4 +11,5 @@ mixin RouteName {
   static String MINE = "/mine";
   static String LOGIN = "/login";
   static String LIVE = "/live";
+  static String USERAGREEMENT = "/userAgreement";
 }

@@ -18,8 +18,12 @@ import 'package:shop/pages/main/publish/view.dart';
 import 'package:shop/pages/main/search/binding.dart';
 import 'package:shop/pages/main/search/view.dart';
 import 'package:shop/pages/main/view.dart';
+import 'package:shop/pages/tool/webview/binding.dart';
+import 'package:shop/pages/tool/webview/view.dart';
 import 'package:shop/pages/unknown/binding.dart';
 import 'package:shop/pages/unknown/view.dart';
+
+import '../../pages/middle_ware/login_middle_ware.dart';
 
 class BiliBiliRouter with RouteName{
 
@@ -31,28 +35,34 @@ class BiliBiliRouter with RouteName{
 
   final List<GetPage> getPages = [
     GetPage(
-        name: RouteName.MAIN,
-        page:() => MainPage(),
-        // 可以绑定一组
-        bindings: [
-          MainBinding(),
-          HomeBinding(),
-          MallBinding(),
-          Dynamic_circleBinding(),
-          MineBinding(),
-        ],
-        children: [
-          GetPage(
-              name: RouteName.PUBLISH,
-              page:() => PublishPage(),
-              binding: PublishBinding()
-          ),
-          GetPage(
-              name: RouteName.SEARCH,
-              page:() => SearchPage(),
-              binding: SearchBinding()
-          ),
-        ],
+      name: RouteName.MAIN,
+      page:() => MainPage(),
+      // 可以绑定一组
+      bindings: [
+        MainBinding(),
+        HomeBinding(),
+        MallBinding(),
+        Dynamic_circleBinding(),
+        MineBinding(),
+      ],
+      children: [
+
+        GetPage(
+          name: RouteName.PUBLISH,
+          page:() => PublishPage(),
+          binding: PublishBinding(),
+
+          /// 中间件（登录）
+          middlewares: [
+            LoginAuthMiddleWare(),
+          ],
+        ),
+        GetPage(
+            name: RouteName.SEARCH,
+            page:() => SearchPage(),
+            binding: SearchBinding()
+        ),
+      ],
       transition: Transition.fadeIn,
     ),
     GetPage(
@@ -84,6 +94,11 @@ class BiliBiliRouter with RouteName{
         name: RouteName.LIVE,
         page:() => LivePage(),
         binding: LiveBinding()
+    ),
+    GetPage(
+        name: RouteName.USERAGREEMENT,
+        page:() => WebviewPage(),
+        binding: WebviewBinding()
     ),
   ];
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:shop/core/router/router.dart';
 
@@ -25,6 +26,10 @@ class LZLApp extends StatelessWidget {
           highlightColor: Colors.transparent,
           splashFactory: NoSplash.splashFactory,
         ),
+
+        ///smartDialog 插件需要初始化
+        navigatorObservers: [FlutterSmartDialog.observer],
+        builder: FlutterSmartDialog.init(),
       ),
     );
   }

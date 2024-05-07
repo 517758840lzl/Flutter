@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shop/core/router/page_name.dart';
+import 'package:shop/pages/middle_ware/login_middle_ware.dart';
 
 import 'state.dart';
 
@@ -7,7 +8,7 @@ class HomeLogic extends GetxController with RouteName {
   final HomeState state = HomeState();
 
   void userLogin() {
-    Get.toNamed(RouteName.LOGIN);
+    LoginWidget().goToLogin();
   }
 
   void gotoSearch() {

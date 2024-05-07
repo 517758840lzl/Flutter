@@ -11,8 +11,8 @@ class MinePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Center(
+    return const Center(
       child: Text("Mine",style: TextStyle(fontSize: 30,color: Colors.black),),
-    ));
+    );
   }
 }
